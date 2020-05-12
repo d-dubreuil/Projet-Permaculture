@@ -11,17 +11,25 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Caracteristique {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
+	@JsonView(Views.ViewCommon.class)
 	@Version
 	private int version;
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@JsonView(Views.ViewCommon.class)
 	private String valeur;
+	@JsonView(Views.ViewCommon.class)
 	private Boolean bonusMalus;
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
 	private TypeCarac typeCarac;
 	@OneToMany(mappedBy = "caracteristique")
 	private List<ReferentielUtilisateur> referentielUtilisateurs = new ArrayList<ReferentielUtilisateur>();
