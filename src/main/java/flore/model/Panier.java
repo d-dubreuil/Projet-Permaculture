@@ -12,21 +12,28 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Panier {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@JsonView(Views.ViewCommon.class)
 	private Float total;
 	@OneToOne(mappedBy = "panier")
+	//@JsonView(Views.ViewPanier.class)
 	private Commande commande;
 	@OneToMany(mappedBy = "panier")
 	private List<Selection> selections= new ArrayList<Selection>();
 	@ManyToOne
 	@JoinColumn(name= "utilisateur_id")
+	//@JsonView(Views.ViewPanier.class)
 	private Utilisateur utilisateur;
 	
 	
