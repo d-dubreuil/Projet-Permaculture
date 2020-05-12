@@ -35,6 +35,12 @@ public class CaracteristiqueRestController {
 		return caracteristiqueRepo.findAll();
 	}
 	
+	@GetMapping("/bonus-flores/{nomFlore1}|{nomFlore2}")
+	@JsonView(Views.ViewCaracteristique.class)
+	public List<Caracteristique> findAllByBonusFl1Fl2(@PathVariable String nomFlore1, @PathVariable String nomFlore2) {
+		return caracteristiqueRepo.findAllByBonusFl1Fl2(nomFlore1,nomFlore2);
+	}
+	
 	@GetMapping("/by-attribut/{typeCarac}|{nom}|{valeur}")
 	@JsonView(Views.ViewCaracteristique.class)
 	public Caracteristique findByAttribut(@PathVariable TypeCarac typeCarac, @PathVariable String nom,@PathVariable String valeur) {

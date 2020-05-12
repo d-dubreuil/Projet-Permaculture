@@ -18,7 +18,7 @@ public class test_query {
 		 List<Caracteristique> caracMais = caracteristiqueDao.findByFlore("mais");
 	        System.out.println(caracMais);
 	        
-	        List<Caracteristique> courgeHaricot = caracteristiqueDao.findAllByBonusFl1FL2("courge","haricot");
+	        List<Caracteristique> courgeHaricot = caracteristiqueDao.findAllByBonusFl1Fl2("courge","haricot");
 	        System.out.println(courgeHaricot);
 	        
 	        List<Caracteristique> courgHaricot = caracteristiqueDao.findAllByMalusFl1FL2Carac("courge","haricot","strate");
