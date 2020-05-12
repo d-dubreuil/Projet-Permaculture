@@ -10,23 +10,38 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class CompteUtilisateur {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@JsonView(Views.ViewCommon.class)
 	private String identifiant;
+	@JsonView(Views.ViewCommon.class)
 	private String motDePasse;
+	@JsonView(Views.ViewCommon.class)
 	private String mail;
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
+	@JsonView(Views.ViewCommon.class)
 	private String rue;
+	@JsonView(Views.ViewCommon.class)
 	private String complement;
+	@JsonView(Views.ViewCommon.class)
 	private String codePostal;
+	@JsonView(Views.ViewCommon.class)
 	private String ville;
+	@JsonView(Views.ViewCommon.class)
 	private String telephone;
+	@JsonView(Views.ViewCommon.class)
 	private String informationsBancaires;
+	
 	@OneToMany (mappedBy = "compte")
 	private List<Historique> historiques = new ArrayList<Historique>();
 	@OneToOne (mappedBy = "compteUtilisateur")
