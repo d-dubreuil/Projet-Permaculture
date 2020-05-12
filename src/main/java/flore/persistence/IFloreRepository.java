@@ -6,11 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import flore.model.Faune;
 import flore.model.Flore;
 import flore.model.TypeCarac;
-
-
 
 public interface IFloreRepository extends JpaRepository<Flore, Long>{
 	List <Flore> findByNom(String nom);

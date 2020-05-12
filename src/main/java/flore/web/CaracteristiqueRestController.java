@@ -18,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import flore.model.Caracteristique;
+import flore.model.TypeCarac;
 import flore.model.Views;
 import flore.persistence.ICaracteristiqueRepository;
 
@@ -33,7 +34,25 @@ public class CaracteristiqueRestController {
 	public List<Caracteristique> findAll() {
 		return caracteristiqueRepo.findAll();
 	}
+	
+	@GetMapping("/by-attribut/{typeCarac}|{nom}|{valeur}")
+	@JsonView(Views.ViewCaracteristique.class)
+	public Caracteristique findByAttribut(@PathVariable TypeCarac typeCarac, @PathVariable String nom,@PathVariable String valeur) {
+		return caracteristiqueRepo.findByAttribut(typeCarac,nom,valeur);
+	}
+	
+	@GetMapping("/by-flore/{nom}")
+	@JsonView(Views.ViewCaracteristique.class)
+	public List<Caracteristique> findByFlore(@PathVariable String nom) {
+		return caracteristiqueRepo.findByFlore(nom);
+	}
 
+	@GetMapping("/by-type/{typeCarac}")
+	@JsonView(Views.ViewCaracteristique.class)
+	public List<Caracteristique> findByType(@PathVariable TypeCarac typeCarac) {
+		return caracteristiqueRepo.findByType(typeCarac);
+	}
+	
 	@GetMapping("/{id}")
 	@JsonView(Views.ViewCaracteristique.class)
 	public Caracteristique find(@PathVariable Long id) {

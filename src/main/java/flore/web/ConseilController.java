@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ConseilController {
 
-	@GetMapping("/conseil")
+	@GetMapping("/conseilOld")
 	public String flore(Model model) {
-		model.addAttribute("page", "conseil");
+		model.addAttribute("page", "conseilOld");
 
-		return "/conseil";
+		return "/conseilOld";
 	}
 
 

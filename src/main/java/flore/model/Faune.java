@@ -10,15 +10,20 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Faune {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(unique = true)
+	@JsonView(Views.ViewCommon.class)
 	private String nomFaune;
 	@OneToMany(mappedBy = "faune")
 	private List<ReferentielFaune> referentielFaunes = new ArrayList<ReferentielFaune>();

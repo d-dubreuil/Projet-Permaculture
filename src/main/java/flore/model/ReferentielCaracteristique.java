@@ -7,18 +7,24 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class ReferentielCaracteristique {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@ManyToOne
 	@JoinColumn (name = "caracteristique_Id")
+	@JsonView(Views.ViewCaracteristiqueFlore.class)
 	private Caracteristique caracteristique;
 	@ManyToOne
 	@JoinColumn (name = "flore_id")
+	@JsonView(Views.ViewCaracteristiqueFlore.class)
 	private Flore flore;
 	public Caracteristique getCaracteristique() {
 		return caracteristique;

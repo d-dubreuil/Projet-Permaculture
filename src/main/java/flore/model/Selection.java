@@ -7,21 +7,28 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Selection {
 
 	
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@JsonView(Views.ViewCommon.class)
 	private Integer total;
 	@ManyToOne
 	@JoinColumn(name = "produit_id")
+	@JsonView(Views.ViewSelection.class)
 	private Produit produit;
 	@ManyToOne
 	@JoinColumn(name = "panier_id")
+	@JsonView(Views.ViewSelection.class)
 	private Panier panier;
 	
 	public Selection() {
