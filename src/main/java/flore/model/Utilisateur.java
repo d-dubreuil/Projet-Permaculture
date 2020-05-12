@@ -15,17 +15,23 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Utilisateur {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Enumerated(EnumType.STRING)
+	@JsonView(Views.ViewCommon.class)
 	private TypeUtilisateur disc;
 	@OneToOne
 	@JoinColumn(name = "compteUtilisateurId")
+	@JsonView(Views.ViewUtilisateur.class)
 	private CompteUtilisateur compteUtilisateur;
 	@OneToMany(mappedBy = "utilisateur")
 	private List<Conseil> conseils = new ArrayList<Conseil>();

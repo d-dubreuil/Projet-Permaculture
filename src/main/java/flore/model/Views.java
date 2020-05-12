@@ -13,6 +13,8 @@ public class Views {
 	
 	public static class ViewConseil extends ViewCommon {}
 	
+	public static class ViewFaune extends ViewCommon {}
+	
 	public static class ViewFavoris extends ViewCommon {}
 	
 	public static class ViewFlore extends ViewCommon {}
@@ -28,4 +30,12 @@ public class Views {
 	public static class ViewPaiement extends ViewCommon {}
 	
 	public static class ViewReferentielCaracteristique extends ViewCommon {}
+	
+	public static class ViewReferentielFaune extends ViewCommon {}
+	
+	public static class ViewReferentielUtilisateur extends ViewCommon {}
+	
+	public static class ViewSelection extends ViewCommon {}
+	
+	public static class ViewUtilisateur extends ViewCommon {}
 }
