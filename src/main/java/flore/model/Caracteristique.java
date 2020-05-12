@@ -34,6 +34,7 @@ public class Caracteristique {
 	@OneToMany(mappedBy = "caracteristique")
 	private List<ReferentielUtilisateur> referentielUtilisateurs = new ArrayList<ReferentielUtilisateur>();
 	@OneToMany(mappedBy = "caracteristique")
+	@JsonView(Views.ViewCaracteristiqueFlore.class)
 	private List<ReferentielCaracteristique> referentielCaracteristiques = new ArrayList<ReferentielCaracteristique>();
 	@OneToMany(mappedBy = "caracteristique")
 	private List<ReferentielFaune> referentielFaunes = new ArrayList<ReferentielFaune>();

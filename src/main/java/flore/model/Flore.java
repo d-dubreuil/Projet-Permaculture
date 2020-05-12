@@ -13,16 +13,21 @@ import javax.persistence.Version;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import flore.persistence.IReferentielCaracteristiqueRepository;
 
 @Entity
 public class Flore {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
 	@Column(unique = true)
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@OneToMany (mappedBy = "flore")
 	private List<ReferentielCaracteristique> referentielCaracteristiques = new ArrayList<ReferentielCaracteristique>();

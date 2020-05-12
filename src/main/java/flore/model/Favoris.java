@@ -11,19 +11,26 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Favoris {
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@JsonView(Views.ViewCommon.class)
 	private String nom;
 	@ManyToMany
 	@JoinTable (name = "Plante_Favories",joinColumns = @JoinColumn(name="favori_id"),inverseJoinColumns = @JoinColumn(name="flore_id"))
 	private List<Flore> flores = new ArrayList<Flore>();
 	@ManyToOne
 	@JoinColumn (name = "compteUtilisateur_id")
+	@JsonView(Views.ViewFavoris.class)
 	private CompteUtilisateur compteUtilisateur;
 	public Favoris(String nom) {
 		super();
