@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import flore.model.Caracteristique;
 import flore.model.TypeCarac;
 
+
 public interface ICaracteristiqueRepository extends JpaRepository<Caracteristique, Long> {
 	@Query("select c from Caracteristique c where c.typeCarac = :type and c.nom = :nom and c.valeur = :valeur")
 	Caracteristique findByAttribut(@Param("type") TypeCarac typeCarac, @Param("nom") String nom,
