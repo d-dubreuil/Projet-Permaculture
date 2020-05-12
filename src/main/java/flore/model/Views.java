@@ -7,6 +7,12 @@ public class Views {
 	
 	public static class ViewCaracteristiqueFlore extends ViewCaracteristique {}
 	
+	public static class ViewCommande extends ViewCommon {}
+	
+	public static class ViewCompteUtilisateur extends ViewCommon {}
+	
+	public static class ViewConseil extends ViewCommon {}
+	
 	public static class ViewFavoris extends ViewCommon {}
 	
 	public static class ViewFlore extends ViewCommon {}

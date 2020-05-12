@@ -7,23 +7,32 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Commande {
 
 	@Id
 	@GeneratedValue
+	@JsonView(Views.ViewCommon.class)
 	private Long id;
 	@Version
+	@JsonView(Views.ViewCommon.class)
 	private int version;
+	@JsonView(Views.ViewCommon.class)
 	private Integer reference;
+	@JsonView(Views.ViewCommon.class)
+	private String typeEnvoi;
+	@JsonView(Views.ViewCommon.class)
+	private Float total;
+	
 	@OneToOne
 	@JoinColumn(name = "paiement_id")
 	private Paiement paiement;
 	@OneToOne
 	@JoinColumn(name = "panier_id")
 	private Panier panier;
-	private String typeEnvoi;
-	private Float total;
+
 	
 	public Commande() {
 		super();
