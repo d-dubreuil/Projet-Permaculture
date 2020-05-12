@@ -11,10 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import flore.persistence.ICaracteristiqueRepository;
-
 @Entity
 public class Caracteristique {
 	@Id

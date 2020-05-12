@@ -18,10 +18,10 @@
 
 	<!-- Indiquer dans quel(s) paquetage(s) scanner pour trouver des annotations -->
 	<context:component-scan
-		base-package="dao.interfaces" />
+		base-package="flore.persistence" />
 
 	<!-- Génération automatique des repositories -->
-	<jpa:repositories base-package="dao.interfaces" />
+	<jpa:repositories base-package="flore.persistence" />
 
 	<!-- Charge le fichier datasource.properties en mémoire -->
 	<context:property-placeholder
@@ -40,7 +40,7 @@
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="model" />
+		<property name="packagesToScan" value="flore.model" />
 		<!--On précise le provider ... -->
 		<property name="jpaVendorAdapter">
 			<bean
